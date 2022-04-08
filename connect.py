@@ -6,12 +6,12 @@ from turtle import update
 from unicodedata import name
 from unittest import result
 import mysql.connector
+import psycopg2
 import os
 
-db = mysql.connector.connect(host="localhost",user = "root",password ="",database ="perpustakaan")
-
-if db.is_connected():
-    print("connect")
+# db = mysql.connector.connect(host="localhost",user = "root",password ="",database ="perpustakaan")
+db = psycopg2.connect(database="perpustakaan", user = "postgres", password = "12345", host = "localhost", port = "5432")
+print("connect")
 
 def insert_data(db):
     name= input("Masukkan nama: ")
